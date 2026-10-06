@@ -1,0 +1,8 @@
+{
+  "id": "http-retry",
+  "repository": "fixtures/repo",
+  "editable": "src/http_client.py",
+  "issue": "ISSUE.md",
+  "public_cases": "tests/public_cases.json",
+  "adapter": "python-http-v1"
+}

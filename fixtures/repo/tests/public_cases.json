@@ -1,0 +1,110 @@
+[
+  {
+    "name": "post-must-not-repeat",
+    "input": {
+      "method": "POST",
+      "max_attempts": 3,
+      "outcomes": [
+        {
+          "status": 503,
+          "body": {
+            "sequence": 0
+          }
+        },
+        {
+          "status": 200,
+          "body": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unauthorized-is-terminal",
+    "input": {
+      "method": "GET",
+      "max_attempts": 3,
+      "outcomes": [
+        {
+          "status": 401,
+          "body": {
+            "sequence": 0
+          }
+        },
+        {
+          "status": 200,
+          "body": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "transient-get",
+    "input": {
+      "method": "GET",
+      "max_attempts": 3,
+      "outcomes": [
+        {
+          "status": 503,
+          "body": {
+            "sequence": 0
+          }
+        },
+        {
+          "status": 200,
+          "body": {
+            "sequence": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "backoff-and-budget",
+    "input": {
+      "method": "GET",
+      "max_attempts": 4,
+      "outcomes": [
+        {
+          "status": 503,
+          "body": {
+            "sequence": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "first-success",
+    "input": {
+      "method": "GET",
+      "max_attempts": 3,
+      "outcomes": [
+        {
+          "status": 200,
+          "body": {
+            "sequence": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "invalid-budget",
+    "input": {
+      "method": "GET",
+      "max_attempts": 0,
+      "outcomes": [
+        {
+          "status": 200,
+          "body": {
+            "sequence": 0
+          }
+        }
+      ]
+    }
+  }
+]
